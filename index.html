@@ -100,10 +100,11 @@
     <!-- Navegación -->
     <nav id="navbar" class="fixed top-0 w-full z-50 px-4 md:px-6 py-4 md:py-6 transition-all duration-500">
         <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-4 md:px-6 py-3 flex justify-between items-center">
+            
             <div class="flex items-center gap-3 group cursor-pointer" onclick="window.scrollTo(0,0)">
-                <div class="w-9 h-9 md:w-11 md:h-11 bg-white rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(0,245,255,0.2)] group-hover:scale-105 transition-all">
-                    <span class="text-black font-black text-xs">DT</span>
-                </div>
+                <!-- LOGO NAVBAR: Imagen SVG con caja blanca tipo icono -->
+                <img src="img/LOGO.svg" alt="DT CODE" class="w-9 h-9 md:w-11 md:h-11 object-contain bg-white rounded-xl p-1.5 shadow-[0_0_15px_rgba(0,245,255,0.2)] group-hover:shadow-[0_0_20px_rgba(0,245,255,0.6)] group-hover:scale-105 transition-all duration-500">
+                
                 <div class="flex flex-col leading-none">
                     <span class="font-bold text-lg md:text-xl tracking-tight uppercase">DT CODE</span>
                     <span class="text-[6px] md:text-[7px] tracking-[0.15em] opacity-50 uppercase font-medium">Digital Agency</span>
@@ -129,6 +130,17 @@
     <!-- Hero Section -->
     <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20">
         <div id="hero-content" class="z-10 w-full max-w-4xl mx-auto">
+            
+            <!-- LOGO PRINCIPAL CON AURA (Hero - Grande) -->
+            <div id="hero-logo-large" class="relative mb-6 md:mb-10 opacity-0 scale-90 flex justify-center items-center">
+                <!-- Capa de Aura concentrada -->
+                <div class="absolute w-[200px] h-[100px] md:w-[300px] md:h-[150px] bg-[#00F5FF]/50 rounded-[100px] blur-[50px] md:blur-[70px] -z-10 mix-blend-screen"></div>
+                <div class="absolute w-[120px] h-[60px] md:w-[180px] md:h-[90px] bg-white/20 rounded-[100px] blur-[30px] md:blur-[40px] -z-10"></div>
+                
+                <!-- Imagen del logo con bordes redondeados y mix-blend-screen -->
+                <img src="img/DT-CODE-LOGO (2).png" alt="DT CODE Agency" class="relative z-10 w-[200px] sm:w-[260px] md:w-[320px] h-auto object-contain rounded-2xl mix-blend-screen hover:scale-105 transition-transform duration-500">
+            </div>
+
             <span class="inline-block px-4 py-1.5 rounded-full border border-white/10 text-[8px] md:text-[10px] uppercase tracking-[0.4em] mb-8 opacity-0 translate-y-4" id="hero-tag">
                 La base de tu desarrollo digital
             </span>
@@ -332,8 +344,10 @@
             injectContactInfo();
             document.getElementById('secure-form').addEventListener('submit', handleSecureSubmit);
 
+            // ANIMACIÓN ACTUALIZADA: Incluye el #hero-logo-large para que aparezca suavemente
             const tl = gsap.timeline({ defaults: { ease: "power4.out" }});
-            tl.to("#hero-tag", { opacity: 1, y: 0, duration: 1 })
+            tl.to("#hero-logo-large", { opacity: 1, scale: 1, duration: 1.2 })
+            .to("#hero-tag", { opacity: 1, y: 0, duration: 1 }, "-=0.6")
             .to("#hero-title", { opacity: 1, y: 0, duration: 1 }, "-=0.7")
             .to("#hero-desc", { opacity: 1, y: 0, duration: 1 }, "-=0.7")
             .to("#hero-btns", { opacity: 1, y: 0, duration: 1 }, "-=0.7");
